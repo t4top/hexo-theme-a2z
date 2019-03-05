@@ -1,0 +1,13 @@
+# a2z theme Configuration
+
+# Header
+menu:
+  Ozlem: /ozlem
+  Deniz: /deniz
+  Temi: /temi
+  Blogs: /blogs
+  Contact Us: /contact
+
+disqus_shortname: akinbosoyezaimoglu-com
+google_analytics: UA-131136908-1
+github: t4top/akinbosoyezaimoglu.com
