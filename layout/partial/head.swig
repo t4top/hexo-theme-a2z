@@ -19,3 +19,9 @@
 {% for val in theme.head_js %}
   {{ js(val) }}
 {% endfor %}
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+<link rel="dns-prefetch" href="//code.jquery.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="{{ config.url }}">
