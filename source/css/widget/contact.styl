@@ -1,0 +1,50 @@
+@import "nib"
+@import "../_variables"
+
+.site_main
+  p:first-letter 
+    font-size: inherit
+  h1
+    margin-bottom: 1rem
+  .form_ajax
+    font-size: small
+    p
+      line-height: 1rem
+    div
+      padding: 0.8rem
+    label
+      display: block
+      font-weight: 700
+    input, textarea
+      border: 1px solid color_border_line
+      padding: 0.3rem
+      width: 90%
+      max-width:45rem
+      &.input_error
+        border: 1px solid color_contact_error
+      &:valid
+        border: 1px solid color_border_line
+      &:valid + .error_msg
+        display: none
+    textarea
+      height: 10rem
+    button
+      font-weight: 700
+      padding: 0.8rem 2rem
+      border: 1px solid color_contact_btn_hover
+      background-color: color_contact_btn
+      color: color_contact_btn_text
+      @media mq_mobile
+        width: 90%
+      &:hover
+        background-color: color_contact_btn_hover
+      &:disabled
+        background: color_disabled
+        border: 1px solid color_disabled
+    .chkbox
+      width: 1.2rem
+      height: 1.2rem
+      vertical-align: middle
+    .error_msg
+      color: color_contact_error
+      padding: 0
