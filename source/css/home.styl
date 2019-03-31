@@ -1,0 +1,101 @@
+@import "nib"
+@import "_variables"
+@import "base"
+
+body
+  overflow-x: hidden
+  grid-template-columns: auto
+  grid-template-rows: 5.5rem 2fr 3fr 4.5rem
+  grid-template-areas: 'nav' 'header' 'main' 'footer'
+  grid-gap: 0.8rem
+  .btn
+    border-radius: 100px
+    padding: 0.8em 3em
+    font-weight: 700
+    color: color_home_btn
+    background-color: color_home_btn_hover
+    opacity: 0.5
+    &:hover
+      color: color_home_btn_hover
+      background-color: color_home_btn
+      opacity: 1
+
+.site_nav
+  display: block
+  position: absolute
+  width: 100%
+  padding: 1em 2em 0 0
+  .btn
+    float: right
+    margin: auto 0
+
+.site_header
+  padding: 3.2em 1.3em
+  .title
+    text-align: center
+    margin: auto 0
+    h1
+      margin-bottom: 3rem
+      font-size: 6vw
+      text-shadow: 0.2rem 0.2rem transparent, 0.4rem 0.4rem color_shadow
+      color: color_top_title
+      @media mq_mobile
+        font-size: 2rem
+        text-shadow: 0.1rem 0.1rem transparent, 0.2rem 0.2rem color_shadow
+
+.site_main
+  .bg
+    z-index: -10
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    overflow: hidden
+    background-color: color_bg
+    -webkit-filter: grayscale(100%)
+    filter: grayscale(100%)
+    @media mq_mobile
+      background: url("//unsplash.it/600/400") center center / cover no-repeat
+  #bg_video
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    @media (min-aspect-ratio: 16/9)
+      height: 300%
+      top: -100%
+    @media (max-aspect-ratio: 16/9)
+      width: 300%
+      left: -100%
+    @media mq_mobile
+      display: none
+  .cards
+    perspective: 50rem
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    padding: 0.8rem
+  a
+    width: 17%
+    min-width: 250px
+    margin: 1rem 1.5rem
+    padding: 1.2rem
+    text-align: center
+    box-shadow: 0 0.2rem 0.5rem color_shadow
+    border: 1px solid color_border_line
+    border-radius: 15px
+    background-color: color_thumb_bg
+    color: color_text
+    transition: transform 500ms ease-out
+    transform: rotateY(0deg) rotateX(5deg)
+    &:hover
+      transform: rotateY(0deg) rotateX(-10deg)
+      color: color_active_link_bg
+    img
+      max-width: 100%
+      border: 0
+      border-radius: 50%
+      border: 1px solid alpha(color_footer_bg, 0.5)
+      // clip-path: circle()

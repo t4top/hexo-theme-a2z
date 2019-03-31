@@ -43,3 +43,49 @@ hexo.extend.helper.register('appendToArray', function(arr, item) {
   }
   return '';
 });
+
+hexo.extend.helper.register('isCurrentPath', function (path = '/') {
+  var rUrl = /^\w+:\/\/[^\/]+?/;
+  var currentPath = this.path.replace(/^[^/].*/, '/$&');
+
+  if (rUrl.test(path)) {
+    currentPath = this.url;
+    if (path[path.length - 1] === '/') path += 'index.html';
+    return (currentPath === path);
+  } else {
+    path = path.replace(/\/index\.html$/, '/');
+    if (path === '/') return (currentPath === '/index.html');
+    path = path.replace(/^[^/].*/, '/$&');
+    return currentPath.startsWith(path);    
+  }
+});
+
+hexo.extend.helper.register('createArchiveArray', function(posts) {
+  var postsObj = {};
+  posts.forEach(function(post, i) {
+    var year = post.date.year().toString();
+    var month = post.date.format('MM').toString();
+
+    if (Object.keys(postsObj).indexOf(year) < 0) {
+      postsObj[year] = {};
+    }
+    if (Object.keys(postsObj[year]).indexOf(month) < 0) {
+      postsObj[year][month] = {};
+    }
+    if (Object.keys(postsObj[year][month]).indexOf(post.title) < 0) {
+      postsObj[year][month][post.title] = {};
+    }
+    postsObj[year][month][post.title] = post;
+  });
+
+  // printObj(Object.keys(postsObj).sort((a, b) => b.localeCompare(a)));
+  return postsObj;
+});
+
+
+hexo.extend.helper.register('sortStringArray', function(obj, order) {
+  if (order == 'desc')
+    return obj.sort((a, b) => b.localeCompare(a));
+  else
+    return obj.sort((a, b) => a.localeCompare(b));
+});

@@ -2,11 +2,12 @@
 
 # Header
 menu:
-  Ozlem: /ozlem
-  Deniz: /deniz
-  Temi: /temi
-  Blogs: /blogs
-  Contact Us: /contact
+  Ozlem: https://ozlem.akinbosoyezaimoglu.com/
+  Deniz: https://deniz.akinbosoyezaimoglu.com/
+  Temi: https://temi.akinbosoyezaimoglu.com/
+  Blogs: /blogs/
+  Archives: /allarchives/
+  Contact Us: /contact/
 
 head_css:
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
