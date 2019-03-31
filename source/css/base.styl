@@ -7,13 +7,15 @@ html, body
   height: 100%
   margin: 0
   color: color_text
+  font-size: 16px
+  @media mq_ultrawide
+    font-size: 32px
 
 body
   width: 100%
   grid-gap: 0
   font-family: font_default
   display: grid
-  font-size: 20px
 
 a
   text-decoration: none
@@ -21,28 +23,29 @@ a
 ol, ul
   list-style-type: none
 
-.navbar
-  grid-area: navbar
-//  background-color: red
+.required
+  color: color_contact_error
 
-.header
+.hideme
+  display: none
+
+.site_nav
+  grid-area: nav
+
+.site_header
   grid-area: header
-//  background-color: yellow
 
-.main
+.site_main
   grid-area: main
-//  background-color: blue
 
-.sidebar
-  grid-area: sidebar
-//  background-color: orange
+.site_aside
+  grid-area: aside
 
-.footer
+.site_footer
   grid-area: footer
-//  background-color: green
 
-.footer
-  padding: 15px 30px
+.site_footer
+  padding: 1rem 2rem
   background-color: color_footer_bg
   color: color_footer_text
   opacity: 0.5
@@ -50,8 +53,7 @@ ol, ul
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
   align-items: center;
   .footer_copyright
-    font-size: 12px
-    line-height: 16px
+    font-size: small
     text-align: left
   .footer_links
     text-align: right

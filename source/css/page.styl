@@ -2,184 +2,137 @@
 @import "_variables"
 @import "base"
 
-navbar_height = 0  //85px
+nav_height = 4rem
 
 body
-  grid-template-columns: 4fr 1fr
-  grid-template-rows: 2fr 4fr 80px
-  grid-template-areas: 'header header' 'main sidebar' 'footer footer'
-  @media mq_mobile
-    grid-template-columns: auto
-    grid-template-rows: 2fr auto auto 80px
-    grid-template-areas: 'header' 'main' 'sidebar' 'footer'
+  grid-template-rows: nav_height 2fr auto 4.5rem
+  grid-template-areas: 'nav' 'header' 'main' 'footer'
 
-.header
-  display: block
-  background-color: color_header_bg
-
-.title
-  margin-top: navbar_height
-  text-align: left
-  line-height: 150px
-  padding: 30px 20px
-  position: relative
-  height: 300px
-  align-items: center
-  justify-items: left
-  img
-    z-index: 10
-    position: absolute
-    top: 0
-    left: 0
-    bottom: 0
-    right: 0
-    width: 100%
-    height: 100%
-    overflow: hidden
-  h1
-    z-index: 20
-    position: absolute
-    left: 10px
-    right: 0
-    top: 50%
-    transform: translateY(-40%)
-    font-family: font_default4
-    font-size: 100pt
-    color: color_page_title
-    text-shadow: 3px 3px color_title_shadow
-
-.navbar
-  z-index: 30
+.site_nav
   position: fixed
+  z-index: 30
   top: 0
   left: 0
   width: 100%
-  display: grid
-  grid-template-columns: 1fr 2fr
-  align-items: center
-  justify-items: left
-  padding: 15px 25px
-  // background-color: alpha(color_navbar_bg, 0.9)
+  height: nav_height
   background-color: color_navbar_bg
   border-bottom: 1px solid color_bg
+  padding: 0 1rem
+  display: flex
+  align-items: center
   a
     color: color_link
     font-weight: 800
-    padding: 7px 10px
   .nav
-    display: grid
-    justify-items: right
+    margin-left: auto
     text-align: right
-    width: 100%
-    a
-      transition-duration: 200ms
-      transition-property: color, background-color
-      &:hover, &.active_link
-        color: color_link_hover
-        background-color: color_text
-        border-radius: 5px
-  ul
-    text-transform: uppercase
-    @media mq-mobile
+    .nav_checkbox_label
       display: none
-  ul li
-    display: inline-block
-    padding: 5px 10px
-    font-size: 13px
- .sidenav_open
-    display: none
-    font-size: 30px
-    @media mq-mobile
-      display: block
+      @media mq_mobile
+        display: block
+        cursor: pointer
+        padding: 1rem 0.5rem
+        height: 100%
+        & span,
+        & span::before,
+        & span::after
+          content: ''
+          display: block
+          height: 3px
+          width: 1.75rem
+          border-radius: 3px
+          background-color: color_link
+          transition: transform ease-in-out 500ms
+        & span::before
+          transform: translateY(-6px)
+        & span::after
+          transform: translateY(3px)
+    ul
+      text-transform: uppercase
+      @media mq_mobile
+        z-index: 100
+        position: absolute
+        top: nav_height
+        right: 0
+        padding: 0
+        transform: scale(1, 0)
+        transform-origin: top
+        background-color: color_navbar_bg
+        border-left: 1px solid color_bg
+        transition: transform 500ms ease-in-out
+      li
+        display: inline-block
+        @media mq_mobile
+          text-align: left
+          display: block
+          border-bottom: 1px solid color_bg
+        a
+          transition: color 200ms, background-color 200ms
+          padding: 0.3rem 1rem
+          @media mq_mobile
+            display: block
+            opacity: 0
+            padding: 1.5rem 3rem
+            transition: opacity 250ms ease-in-out
+          &:hover, &.active_link
+            color: color_link_hover
+            background-color: color_text
+            border-radius: 5px
+            @media mq_mobile
+              border-radius: 0
+    .nav_checkbox
+      position: absolute !important
+      top: -999px !important
+      left: -999px !important
+      &:checked ~ ul
+        transform: scale(1,1)
+      &:checked ~ ul a
+        opacity: 1
+        transition: opacity 250ms ease-in-out 250ms
+      &:checked ~ ul ~ label span
+        transform: rotate(45deg)
+      &:checked ~ ul ~ label span::before
+        transform: rotate(90deg)
+      &:checked ~ ul ~ label span::after
+        transform: translateY(-3px) rotate(-90deg)
 
-#sidenav
-  z-index: 100
-  display: none
-  position: absolute
-  top: 0
-  right: 0
-  min-width: 60%
-  border-radius: 0 0 0 15px
-  overflow-x: hidden
-  // transition-duration: 500ms
-  background-color: color_shadow
-  justify-items: center
-  text-align: center
-  a
-    display: block
-    color: color_sidenav_link
-    opacity: 0.6
-    text-shadow: 0 1px color_shadow
-    transition-duration: 200ms
-    transition-property: opacity
-    padding: 10px
-    &:hover
-      opacity: 1
-      background-color: color_sidenav_hover
-  .sidenav_close
-    font-size: 40px
-    text-align: right
-    padding-right: 40px
-    &:hover
-      background-color: transparent
+.site_header
+  display: block
+  background-color: color_header_bg
+  .title
+    text-align: left
+    line-height: 150px
+    padding: 30px 20px
+    position: relative
+    height: 300px
+    align-items: center
+    justify-items: left
+    img
+      z-index: 10
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      width: 100%
+      height: 100%
+      overflow: hidden
+    h1
+      z-index: 20
+      position: absolute
+      left: 1rem
+      right: 0
+      top: 50%
+      transform: translateY(-40%)
+      font-family: font_cookie
+      font-size: 8rem
+      color: color_page_title
+      text-shadow: 3px 3px color_title_shadow
 
-.main
-  line-height: 30px
-  padding: 30px 45px
+.site_main
+  line-height: 2rem
+  padding: 2rem 3rem
   & > p:first-letter  // Apply styles to p:first-of-type, which may or may not be :first-child
-    font-size: 200%
+    font-size: 2rem
   & > p ~ p:first-letter  // Undo the above styles for every subsequent p
-    font-size: 20px
-
-.article_heading
-  word-break: break-all
-
-.article_header, .article_footer, .article_meta
-  display: block
-  font-size: 16px
-  line-height: 16px
-  margin: 20px 0
-
-.fa
-  margin: 0 5px
-
-.article_share
-  strong
-    display: inline-block
-    @media mq_mobile
-      display: block
-  a
-    display: inline-block
-    font-size: 30px
-    padding-left: 10px
-    transition-duration: 500ms
-    transition-property: transform
-    &:hover
-      transform: scale(1.2)
-  .article_share_facebook
-    color: #3A559F
-  .article_share_twitter
-    color: #1BB2E9
-  .article_share_pinterest
-    color: #CB2027
-  .article_share_xing
-    color: #1E8687
-  .article_share_linkedin
-    color: #0077B5
-
-.article_meta, .excerpt_meta
-  font-size: 12px
-  line-height: 16px
-  .meta_author, .meta_date, .meta_comment
-    display: block
-
-.excerpt_more
-  display: block
-
-.sidebar
-  padding: 20px
-  strong
-    display: block
-    text-transform: uppercase
-  a + a
-    padding: 5px 
+    font-size: 1rem

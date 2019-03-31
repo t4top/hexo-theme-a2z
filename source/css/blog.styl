@@ -1,10 +1,15 @@
-@import "nib"
-@import "_variables"
-@import "base"
-
 @import "page"
 
-.main
+body
+  grid-template-columns: 4fr 1fr
+  grid-template-rows: 4rem 2fr 4fr 4.5rem
+  grid-template-areas: 'nav nav' 'header header' 'main aside' 'footer footer'
+  @media mq_mobile
+    grid-template-columns: auto
+    grid-template-rows: 4rem 2fr auto auto 4.5rem
+    grid-template-areas: 'nav' 'header' 'main' 'aside' 'footer'
+
+.site_main
   background-color: color_blog_bg
   h1
     margin-bottom: 20px
@@ -34,3 +39,55 @@
       margin: 5px 0
   .excerpt_link
     font-size: 1.5rem
+
+.site_aside
+  padding: 20px
+  strong
+    display: block
+    text-transform: uppercase
+  a + a
+    padding: 5px 
+  
+.article_heading
+  word-break: break-all
+
+.article_header, .article_footer, .article_meta
+  display: block
+  font-size: 16px
+  line-height: 16px
+  margin: 20px 0
+
+.fa
+  margin: 0 5px
+
+.article_share
+  strong
+    display: inline-block
+    @media mq_mobile
+      display: block
+  a
+    display: inline-block
+    font-size: 30px
+    padding-left: 10px
+    transition: transform 500ms
+    &:hover
+      transform: scale(1.2)
+  .article_share_facebook
+    color: #3A559F
+  .article_share_twitter
+    color: #1BB2E9
+  .article_share_pinterest
+    color: #CB2027
+  .article_share_xing
+    color: #1E8687
+  .article_share_linkedin
+    color: #0077B5
+
+.article_meta, .excerpt_meta
+  font-size: 12px
+  line-height: 16px
+  .meta_author, .meta_date, .meta_comment
+    display: block
+
+.excerpt_more
+  display: block

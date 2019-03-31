@@ -2,6 +2,26 @@
 support-for-ie = true
 vendor-prefixes = webkit moz ms official
 
+// Media queries
+mq_ultrawide = "screen and (min-width: 2561px)"
+mq_normal = "screen and (min-width: 769px)"
+mq_mobile = "screen and (max-width: 768px)"
+mq_tablet = "screen and (min-width: 480px)"
+
+// font sizes
+extra_large = 2.2rem
+large = 1.7rem
+normal = 1rem
+small = 0.8rem
+extra_small = 0.55rem
+
+// font family
+font_default = "Helvetica Neue", Helvetica, Arial, sans-serif
+font_cookie = 'Cookie', cursive
+font_default2 = 'Fjalla One', 'Georgia', "Helvetica Neue", Helvetica, Arial, sans-serif
+font_default3 = 'Roboto Condensed', 'Georgia', "Helvetica Neue", Helvetica, Arial, sans-serif
+font_default5 = 'Roboto Slab', serif
+
 // Colors
 color_text= #111
 color_bg= #d9d9d9
@@ -53,12 +73,6 @@ color-link = #0e83cd
 color-link-hover = lighten(color-link, 10%)
 
 // Typography
-font_default = "Helvetica Neue", Helvetica, Arial, sans-serif
-font_default2 = 'Fjalla One', 'Georgia', "Helvetica Neue", Helvetica, Arial, sans-serif
-font_default3 = 'Roboto Condensed', 'Georgia', "Helvetica Neue", Helvetica, Arial, sans-serif
-font_default4 = 'Cookie', cursive
-font_default5 = 'Roboto Slab', serif
-
 font-sans = "Helvetica Neue", Helvetica, Arial, sans-serif
 font-serif = Garamond, Georgia, "Times New Roman", serif
 font-mono = "Source Code Pro", Monaco, Menlo, Consolas, monospace
@@ -72,11 +86,14 @@ gutter-width = 20px
 sidebar-width = 220px
 mobile-nav-width = 260px
 
-// Media queries
-mq_mobile = "screen and (max-width: 768px)"
-mq_normal = "screen and (min-width: 769px)"
-mq_tablet = "screen and (min-width: 480px)"
+// css_var = hexo-config("css_var") // returns only string
+// sidebar = hexo-config("sidebar")
+// sidebar-column = 3
 
-mq-mobile = "screen and (max-width: 768px)"
-mq-normal = "screen and (min-width: 769px)"
-mq-tablet = "screen and (min-width: 480px)"
+// if sidebar and sidebar isnt bottom
+//   _sidebar-column = sidebar-column
+// else
+//   _sidebar-column = 0
+
+// // Grids
+// columns = main-column + _sidebar-column
