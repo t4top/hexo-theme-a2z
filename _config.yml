@@ -8,6 +8,17 @@ menu:
   Blogs: /blogs
   Contact Us: /contact
 
+head_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://fonts.googleapis.com/css?family=Cookie
+  - css/lightbox.min
+
+head_js:
+
+body_js:
+  - 'js/lightbox-plus-jquery.min.js'
+  - js/main.js
+
 disqus_shortname: akinbosoyezaimoglu-com
 google_analytics: UA-131136908-1
 github: t4top/akinbosoyezaimoglu.com

@@ -13,7 +13,6 @@ hexo.extend.helper.register('hexo_version', function() {
   return this.env.version;
 });
 
-
 hexo.extend.helper.register('page_anchor', function(str) {
   var $ = cheerio.load(str, {decodeEntities: false});
   var headings = $('h1, h2, h3, h4, h5, h6');
@@ -29,4 +28,18 @@ hexo.extend.helper.register('page_anchor', function(str) {
   });
 
   return $.html();
+});
+
+var emptyArr = [];
+hexo.extend.helper.register('getEmptyArray', function() {
+  emptyArr = [];
+  return emptyArr;
+});
+
+hexo.extend.helper.register('appendToArray', function(arr, item) {
+  if (!Array.isArray(arr)) arr = new Array();
+  if (Array.isArray(item) || arr.indexOf(item) < 0) {
+    arr.push(item);
+  }
+  return '';
 });

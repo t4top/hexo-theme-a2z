@@ -12,3 +12,7 @@
     <script id="dsq-count-scr" src="//{{ config.disqus_shortname }}.disqus.com/count.js" async></script>
   {% endif %}
 </footer>
+<!-- JS -->
+{% for val in theme.body_js %}
+  {{ js(val) }}
+{% endfor %}
