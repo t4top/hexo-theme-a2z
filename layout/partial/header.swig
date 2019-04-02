@@ -22,7 +22,7 @@
       {% if is_post() %}
         Blogs
       {% else %}
-        {{ page_title || page.title }}
+        {{ page.title }}
       {% endif %}
     </h1>
     {{ partial('img', { src: url_for('//unsplash.it/1920/400?image=767'), title: post.title }) }}

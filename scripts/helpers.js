@@ -52,6 +52,10 @@ hexo.extend.helper.register('isCurrentPath', function (path = '/') {
     currentPath = this.url;
     if (path[path.length - 1] === '/') path += 'index.html';
     return (currentPath === path);
+  } else if (path.startsWith(this.url_for(this.config.archive_dir))) {
+    currentPath = this.url;
+    return ((currentPath.indexOf('/' + this.config.archive_dir + '/') >= 0) ||
+            (currentPath.indexOf('/tags/') >= 0) || (currentPath.indexOf('/categories/') >= 0));
   } else {
     path = path.replace(/\/index\.html$/, '/');
     if (path === '/') return (currentPath === '/index.html');
@@ -78,14 +82,18 @@ hexo.extend.helper.register('createArchiveArray', function(posts) {
     postsObj[year][month][post.title] = post;
   });
 
-  // printObj(Object.keys(postsObj).sort((a, b) => b.localeCompare(a)));
   return postsObj;
 });
-
 
 hexo.extend.helper.register('sortStringArray', function(obj, order) {
   if (order == 'desc')
     return obj.sort((a, b) => b.localeCompare(a));
   else
     return obj.sort((a, b) => a.localeCompare(b));
+});
+
+hexo.extend.helper.register('zeroPad', function (num, size = 2) {
+  var s = num + "";
+  while (s.length < size) s = "0" + s;
+  return s;
 });
