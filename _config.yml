@@ -15,6 +15,7 @@ head_css:
   - css/lightbox.min
 
 head_js:
+  - https://identity.netlify.com/v1/netlify-identity-widget.js
 
 body_js:
   - 'js/lightbox-plus-jquery.min.js'

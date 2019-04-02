@@ -53,6 +53,17 @@ function addListener(obj, evt, callback) {
 
 //-- Initial configurations --//
 
+// Netlify CMS authentication redirect
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", function (user) {
+    if (!user) {
+      window.netlifyIdentity.on("login", function () {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}
+
 // Lightbox option
 lightbox.option({
   'alwaysShowNavOnTouchDevices': true,
