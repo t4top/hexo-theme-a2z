@@ -21,7 +21,7 @@ head_js:
   - https://cdn.jsdelivr.net/combine/npm/lightgallery,npm/lg-autoplay,npm/lg-fullscreen,npm/lg-thumbnail,npm/lg-video,npm/lg-zoom,npm/lg-pager
 
 body_js:
-  - 'js/lightbox-plus-jquery.min.js'
+  - 'js/lightbox.min.js'
   - js/main.js
 
 disqus_shortname: akinbosoyezaimoglu-com
