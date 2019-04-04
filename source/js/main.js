@@ -1,9 +1,5 @@
 //-- Helper functions --//
 
-function $(id) {
-  return document.getElementById(id);
-} 
-
 function addClass(obj, cls) {
   if (obj) {
     var arr = obj.className.split(" ");
@@ -69,3 +65,11 @@ lightbox.option({
   'alwaysShowNavOnTouchDevices': true,
   'wrapAround': true
 })
+
+// LightGallery init
+$(document).ready(function() {
+    $(".google_photo_album").lightGallery({
+      download: false,
+      preload: 5
+  });
+});

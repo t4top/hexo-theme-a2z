@@ -1,0 +1,8 @@
+{
+  "name": "hexo-theme-a2z",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "sync-request": "^6.1.0"
+  }
+}
