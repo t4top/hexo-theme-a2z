@@ -4,7 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="{{ url }}">
 <!-- RSS -->
-{{ feed_tag('atom.xml') }}
+{% if theme.rss %}
+  {{ feed_tag(theme.rss) }}
+{% endif %}
 <!-- Open Graph -->
 {{ open_graph({ image: page.thumbnail }) }}
 <!-- Icon -->

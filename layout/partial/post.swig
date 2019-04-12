@@ -15,9 +15,19 @@
   {{ partial('img', { src: post.thumbnail, title: post.title, lightbox: true }) }}
   {{ page_anchor(post.content) }}
   <span class="article_meta">
-    <span class="meta_author" itemprop="author">
-      <i class="fa fa-user-o"></i>{{ post.author }}
-    </span>
+    {% if post.author %}
+      {% for author in post.author.split(',') %}
+        {% set author = author.trim() %}
+        <span class="meta_author">
+          {% if (theme.authors_icons[author]) %}
+            {{ partial('widget/img', { src: theme.authors_icons[author], title: post.title }) }}
+          {% else %}
+            <i class="fa fa-user-circle-o"></i>
+          {% endif %}
+          <span class="author" itemprop="author"><a href="{{ url_for(theme.menu[author]) }}" title="{{ author }}">{{ author }}</a></span>
+        </span>
+      {% endfor %}
+    {% endif %}
     <span class="meta_date">
       <i class="fa fa-calendar"></i>
       <time datetime="{{ date_xml(post.date) }}" itemprop="date_published">{{ date(post.date) }}</time>

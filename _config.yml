@@ -1,6 +1,6 @@
 # a2z theme Configuration
 
-# Header
+# Navbar menu
 menu:
   Ozlem: https://ozlem.akinbosoyezaimoglu.com/
   Deniz: https://deniz.akinbosoyezaimoglu.com/
@@ -8,6 +8,12 @@ menu:
   Blogs: /posts/
   Archives: /allarchives/
   Contact Us: /contact/
+
+# Authors icons
+authors_icons:
+  Ozlem: https://lh3.googleusercontent.com/PlaMqhT5uDu2MhdFD_WMYgPD_xZJcqd5UaGB2HynL4W3uWej1v_KCBwaPBY_Qum84QR3xJbAVsXjn-fbujyxDDBiJA_dgOdxQA=s120-p-k-lf-no
+  Deniz: https://lh3.googleusercontent.com/4UAX3B5LIu9zYDGwsX_Ik7jPDv3ZmszYNsr7rH5g1INt4wWbRPL6pARYChbIulcHIFUvb4d3ek9uiip1MhSY8_RcHmBuzui0aQ=s120-p-k-lf-no
+  Temi: https://lh3.googleusercontent.com/qLNA2uvcFe-V1uiXz5yFwChq_UXrR0MzWFdCB2D6Wduss-fP2rAQcKQ5tzvzNjK-_qwr1vNv6tr60kLsM-qN6BiWp1ECYeX1=s120-p-k-lf-no
 
 head_css:
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
@@ -24,6 +30,7 @@ body_js:
   - 'js/lightbox.min.js'
   - js/main.js
 
+rss: atom.xml
 disqus_shortname: akinbosoyezaimoglu-com
 google_analytics: UA-131136908-1
 github: t4top/akinbosoyezaimoglu.com
