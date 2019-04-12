@@ -1,12 +1,12 @@
-{% if page.comments && config.disqus_shortname %}
+{% if page.comments && theme.disqus_shortname %}
 <section class="comments">
   <div id="disqus_thread"></div>
   <script>
-    var disqus_shortname = '{{ config.disqus_shortname }}';
+    var disqus_shortname = '{{ theme.disqus_shortname }}';
     var disqus_url = '{{ url }}';
     var disqus_title = {{ JSON.stringify(page.title) }};
     var disqus_config = function(){
-      this.language = '{{ disqus_lang() }}';
+      this.language = '{{ config.language }}';
     };
     (function(){
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
