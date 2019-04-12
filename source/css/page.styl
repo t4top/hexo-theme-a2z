@@ -1,9 +1,8 @@
 @import "base"
 
-nav_height = 4rem
-
 body
-  grid-template-rows: nav_height 2fr auto 4.5rem
+  display: grid
+  grid-template-rows: navbar_height 20rem auto 4.5rem
   grid-template-areas: 'nav' 'header' 'main' 'footer'
 
 .site_nav
@@ -12,99 +11,118 @@ body
   top: 0
   left: 0
   width: 100%
-  height: nav_height
   background-color: color_navbar_bg
   border-bottom: 1px solid color_bg
-  padding: 0 1rem
-  display: flex
-  align-items: center
-  a
-    color: color_link
-    font-weight: 800
-  .nav
-    margin-left: auto
-    text-align: right
-    .nav_checkbox_label
-      display: none
-      @media mq_mobile
-        display: block
-        cursor: pointer
-        padding: 1rem 0.5rem
-        height: 100%
-        & span,
-        & span::before,
-        & span::after
-          content: ''
-          display: block
-          height: 3px
-          width: 1.75rem
-          border-radius: 3px
-          background-color: color_link
-          transition: transform ease-in-out 500ms
-        & span::before
-          transform: translateY(-6px)
-        & span::after
-          transform: translateY(3px)
-    ul
-      text-transform: uppercase
-      @media mq_mobile
-        z-index: 100
-        position: absolute
-        top: nav_height
-        right: 0
-        padding: 0
-        transform: scale(1, 0)
-        transform-origin: top
-        background-color: color_navbar_bg
-        border-left: 1px solid color_bg
-        transition: transform 500ms ease-in-out
-      li
-        display: inline-block
+  .container
+    height: navbar_height
+    max-width: site_width
+    margin: 0 auto
+    padding: 0 1rem
+    display: flex
+    align-items: center
+    @media mq_mobile
+      width: site_width_mobile
+    a
+      color: color_link
+      font-weight: 800
+    .nav
+      max-width: 60%
+      margin-left: auto
+      text-align: right
+      display: flex
+      align-items: center
+      .fa
+        font-size: large
         @media mq_mobile
-          text-align: left
+          margin-right: 1rem
+      .nav_checkbox_label
+        display: none
+        @media mq_mobile
           display: block
-          border-bottom: 1px solid color_bg
-        a
-          transition: color 200ms, background-color 200ms
-          padding: 0.3rem 1rem
-          @media mq_mobile
+          cursor: pointer
+          padding: 1rem 0.5rem
+          height: 100%
+          & span,
+          & span::before,
+          & span::after
+            content: ''
             display: block
-            opacity: 0
-            padding: 1.5rem 3rem
-            transition: opacity 250ms ease-in-out
-          &:hover, &.active_link
-            color: color_link_hover
-            background-color: color_text
-            border-radius: 5px
+            height: 3px
+            width: 1.75rem
+            border-radius: 3px
+            background-color: color_link
+            transition: transform ease-in-out 500ms
+          & span::before
+            transform: translateY(-6px)
+          & span::after
+            transform: translateY(3px)
+      ul
+        text-transform: uppercase
+        @media mq_mobile
+          z-index: 100
+          position: absolute
+          top: navbar_height
+          right: 0
+          padding: 0
+          transform: scale(1, 0)
+          transform-origin: top
+          background-color: color_navbar_bg
+          border-left: 1px solid color_bg
+          transition: transform 500ms ease-in-out
+        li
+          display: inline-block
+          margin-left: 0.5rem
+          @media mq_mobile
+            text-align: left
+            display: block
+            margin-left: 0
+            border-bottom: 1px solid color_bg
+          a
+            transition: color 200ms, background-color 200ms
+            padding: 0.3rem 1rem
             @media mq_mobile
-              border-radius: 0
-    .nav_checkbox
-      position: absolute !important
-      top: -999px !important
-      left: -999px !important
-      &:checked ~ ul
-        transform: scale(1,1)
-      &:checked ~ ul a
-        opacity: 1
-        transition: opacity 250ms ease-in-out 250ms
-      &:checked ~ ul ~ label span
-        transform: rotate(45deg)
-      &:checked ~ ul ~ label span::before
-        transform: rotate(90deg)
-      &:checked ~ ul ~ label span::after
-        transform: translateY(-3px) rotate(-90deg)
+              display: block
+              opacity: 0
+              padding: 1.5rem 3rem
+              transition: opacity 250ms ease-in-out
+            &:hover, &.active_link
+              color: color_link_hover
+              background-color: color_text
+              border-radius: 5px
+              @media mq_mobile
+                border-radius: 0
+      .nav_checkbox
+        position: absolute !important
+        top: -999px !important
+        left: -999px !important
+        &:checked ~ ul
+          transform: scale(1,1)
+        &:checked ~ ul a
+          opacity: 1
+          transition: opacity 250ms ease-in-out 250ms
+        &:checked ~ ul ~ label span
+          transform: rotate(45deg)
+        &:checked ~ ul ~ label span::before
+          transform: rotate(90deg)
+        &:checked ~ ul ~ label span::after
+          transform: translateY(-3px) rotate(-90deg)
 
 .site_header
   display: block
   background-color: color_header_bg
-  .title
-    text-align: left
-    line-height: 150px
-    padding: 30px 20px
+  width: 100%
+  .container
+    max-width: site_width
+    margin: 0 auto
     position: relative
-    height: 300px
+    text-align: left
+    line-height: 10rem
+    padding: 2rem 1.5rem
+    height: 20rem
     align-items: center
     justify-items: left
+    @media mq_mobile
+      width: site_width_mobile
     img
       z-index: 10
       position: absolute
@@ -128,9 +146,14 @@ body
       text-shadow: 3px 3px color_title_shadow
 
 .site_main
-  line-height: 2rem
-  padding: 2rem 3rem
-  & > p:first-letter  // Apply styles to p:first-of-type, which may or may not be :first-child
-    font-size: 2rem
-  & > p ~ p:first-letter  // Undo the above styles for every subsequent p
-    font-size: 1rem
+  width: 100%
+  .container
+    max-width: site_width
+    margin: 0 auto
+    line-height: 2rem
+    @media mq_mobile
+      width: site_width_mobile
+    & > p:first-letter  // Apply styles to p:first-of-type, which may or may not be :first-child
+      font-size: 2rem
+    & > p ~ p:first-letter  // Undo the above styles for every subsequent p
+      font-size: 1rem

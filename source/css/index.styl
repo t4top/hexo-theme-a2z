@@ -1,93 +1,74 @@
 @import "page"
 
-body
-  grid-template-columns: 4fr 1fr
-  grid-template-rows: 4rem 2fr 4fr 4.5rem
-  grid-template-areas: 'nav nav' 'header header' 'main aside' 'footer footer'
-  @media mq_mobile
-    grid-template-columns: auto
-    grid-template-rows: 4rem 2fr auto auto 4.5rem
-    grid-template-areas: 'nav' 'header' 'main' 'aside' 'footer'
+.site_main 
+  // background-color: color_blog_bg
+  .container
+    padding: 1rem
+    display: grid
+    grid-gap: 1rem
+    grid-template-columns: 4fr 1fr
+    grid-template-areas: 'content aside'
+    @media mq_mobile
+      grid-template-columns: auto
+      grid-template-rows: auto auto
+      grid-template-areas: 'content' 'aside'
 
-.site_main
-  background-color: color_blog_bg
+.site_content
   h1
-    margin-bottom: 20px
-  .post
-    padding-bottom: 20px
+    margin-bottom: 1.5rem
+  .posts
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
   .excerpt
     background-color: color_blog_post_bg
     border: 1px solid color_blog_post_border_line
     box-shadow: 0 1px 7px color_blog_post_border_shadow
-    display: grid
-    grid-template-columns: 200px repeat(auto-fit, minmax(350px, 1fr))
-    grid-gap: 16px
+    width: calc(33% - 0.3rem)
+    margin-bottom: 1rem
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    &:nth-child(1), &:nth-child(2)
+      width: calc(50% - 0.5rem)
     @media mq_mobile
-      grid-gap: 2px
-      grid-template-columns: auto
-      grid-template-rows: auto auto
-  .excerpt_side
-    align-self: center
-  .excerpt_img
-    width: 100%
-  .excerpt_content
-    padding: 20px
-    font-size: 16px
-    line-height: 20px
+      flex-direction: row
+      &:nth-child(n)
+        width: 100%
+      &:nth-child(1)
+        flex-direction: column
+    .excerpt_head
+      align-self: center
+      min-width: 10rem
+      width: 100%
+    .excerpt_body
+      padding: 0 1rem
+      width: 100%
+      .categories, .tags
+        font-size: small
+      .content
+        font-size: normal
+        padding: 1rem 0
+    img
+      width: 100%
     h1
-      font-size: 1.2rem
+      font-size: large
       margin: 5px 0
-  .excerpt_link
-    font-size: 1.5rem
+  .page_nav
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+    margin: 1rem 0
+    padding: 1rem 0
+    border-top: 1px solid color_line
+    border-bottom: 1px solid color_line
+    .page_nav_next, .page_nav_current
+      margin-left: auto
 
 .site_aside
-  padding: 20px
   strong
     display: block
     text-transform: uppercase
   a + a
     padding: 5px
-
-.article_heading
-  word-break: break-all
-
-.article_header, .article_footer, .article_meta
-  display: block
-  font-size: 16px
-  line-height: 16px
-  margin: 20px 0
-
-.fa
-  margin: 0 5px
-
-.article_share
-  strong
-    display: inline-block
-    @media mq_mobile
-      display: block
-  a
-    display: inline-block
-    font-size: 30px
-    padding-left: 10px
-    transition: transform 500ms
-    &:hover
-      transform: scale(1.2)
-  .article_share_facebook
-    color: #3A559F
-  .article_share_twitter
-    color: #1BB2E9
-  .article_share_pinterest
-    color: #CB2027
-  .article_share_xing
-    color: #1E8687
-  .article_share_linkedin
-    color: #0077B5
-
-.article_meta, .excerpt_meta
-  font-size: 12px
-  line-height: 16px
-  .meta_author, .meta_date, .meta_comment
-    display: block
-
-.excerpt_more
-  display: block

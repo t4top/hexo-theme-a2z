@@ -1,8 +1,12 @@
-{{ partial('partial/header') }}
+{{ partial('partial/navbar') }}
 <main class="site_main">
-  {{ partial('partial/post', {post: page}) }}
-  {{ partial('partial/nav') }}
-  {{ partial('partial/comment') }}
+  <div class="container">
+    <section class="site_content">
+      {{ partial('partial/post', {post: page}) }}
+      {{ partial('partial/paging') }}
+      {{ partial('partial/widget/comment') }}
+    </section>
+    {{ partial('partial/sidebar') }}
+  </div>
 </main>
-{{ partial('partial/sidebar') }}
 {{ partial('partial/footer') }}

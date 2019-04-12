@@ -1,20 +1,8 @@
 {% if trim(post.content) != "" %}
-<article id="{{ post.layout }}-{{ post.slug }}-{{ url }}" class="article" itemscope itemtype="http://schema.org/Article" itemprop="blogPost" data-scroll-reveal>
-  {% if is_post() %}
-    <header>
-        <h1 class="article_title" itemprop="name">{{ post.title }}</h1>
-    </header>
-    <span class="article_header">
-      By <span itemprop="author">{{ post.author }}</span>
-      / <time datetime="{{ date_xml(post.date) }}" itemprop="date_published">{{ date(post.date) }}</time>
-      {% if post.comments && config.disqus_shortname %}
-      / <span class="disqus-comment-count" data-disqus-url="{{ url }}"></span>
-      {% endif %}
-    </span>
-  {% endif %}
-  {{ partial('img', { src: post.thumbnail, title: post.title, lightbox: true }) }}
-  {{ page_anchor(post.content) }}
-  <span class="article_meta">
+<article id="{{ post.layout }}-{{ post.slug }}-{{ url }}" class="post" itemscope itemtype="http://schema.org/Article" itemprop="blogPost" data-scroll-reveal>
+  <span class="post_share_top"><strong>Share This Post:</strong>{{ partial('widget/share') }}</span>
+  <div class="post_title"><h1 itemprop="name">{{ post.title }}</h1></div>
+  <div class="post_meta">
     {% if post.author %}
       {% for author in post.author.split(',') %}
         {% set author = author.trim() %}
@@ -29,22 +17,19 @@
       {% endfor %}
     {% endif %}
     <span class="meta_date">
-      <i class="fa fa-calendar"></i>
-      <time datetime="{{ date_xml(post.date) }}" itemprop="date_published">{{ date(post.date) }}</time>
+      <i class="fa fa-calendar"></i><time class="date" datetime="{{ date_xml(post.date) }}" itemprop="date_published">{{ date(post.date) }}</time>
     {% if post.updated.isAfter(post.date, 'day') %}
-      (<time datetime="{{ date_xml(post.updated) }}" itemprop="date_modified">Updated: {{ date(post.updated) }}</time>)
+      <time class="updated" datetime="{{ date_xml(post.updated) }}" itemprop="date_modified">(Updated: {{ date(post.updated) }})</time>
     {% endif %}
     </span>
-    {% if post.comments && config.disqus_shortname %}
+    {% if post.comments && theme.disqus_shortname %}
     <span class="meta_comment">
-      <i class="fa fa-comment-o"></i>
-      <span class="disqus-comment-count" data-disqus-url="{{ url }}"></span>
+      <i class="fa fa-comment-o"></i><span class="disqus-comment-count" data-disqus-url="{{ url }}"></span>
     </span>
     {% endif %}
-  </span>
-  <span class="article_share">
-    <strong>Share This Post:</strong>
-    {{ partial('share', {post: post}) }}
-  </span>
+  </div>
+  {{ partial('widget/img', { src: post.coverimage, title: post.title, imgcls: 'post_coverimage', lightbox: true }) }}
+  <div class="post_content">{{ page_anchor(post.more) }}</div>
+  <div class="post_share_down"><strong>Share This Post:</strong>{{ partial('widget/share') }}</div>
 </article>
 {% endif %}

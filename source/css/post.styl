@@ -1,24 +1,92 @@
 @import "index"
 
-.excerpt_img
-  display: inline-block
-  width: 300px
-  padding: 0 15px 5px 0
-  float: left
+body
+  grid-template-rows: navbar_height auto 4.5rem
+  grid-template-areas: 'nav' 'main' 'footer'
   @media mq_mobile
-    display: block
-    max-width: 100%
-    float: inherit
-    padding: 0 0 15px 0
+    grid-template-rows: navbar_height auto 4.5rem
+    grid-template-areas: 'nav' 'main' 'footer'
 
-.album_container
-  padding: 1rem 0
-  text-align: center
-  .google_photo_album
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
-    a
-      border-width: 0 5px
-      border-style: solid
-      border-color: color_white
+.site_content
+  .post
+    font-size: small
+    .post_title h1
+      font-size: extra_large
+    .post_coverimage
+      width: 100%
+    .post_meta
+      display: flex
+      align-items: center
+      margin-bottom: 1rem
+      .meta_author
+        display: flex
+        align-items: center
+        .fa
+          font-size: extra_large
+          margin: 0
+          padding: 0
+        img
+          width: 3rem
+          border-radius: 50%
+          border: 1px solid alpha(color_footer_bg, 0.5)
+        .author::before
+          content: ''
+          margin-left: 0.5rem
+        .author::after
+          content: '\2022'
+          margin: 0 1rem
+      .meta_date .updated
+        margin-left: 0.5rem
+      .meta_comment::before
+        content: '\2022'
+        margin: 0 1rem
+    .post_content
+      font-size: normal
+    .post_share_top
+      display: flex
+      justify-content: right
+      @media mq_mobile
+        margin-bottom: 1rem
+    .post_share, .post_share_top, .post_share_down
+      .share_facebook
+        color: #3A559F
+      .share_twitter
+        color: #1BB2E9
+      .share_pinterest
+        color: #CB2027
+      .share_xing
+        color: #1E8687
+      .share_linkedin
+        color: #0077B5
+      strong
+        display: inline-block
+        font-size: normal
+        @media mq_mobile
+          display: block
+      a
+        display: inline-block
+        font-size: 30px
+        padding-left: 10px
+        transition: transform 500ms
+        &:hover
+          transform: scale(1.2)
+    .fa
+      margin-right: 0.3rem
+    .album_container
+      padding: 1rem 0
+      .google_photo_album
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        a
+          margin: 0.2rem
+          @media mq_mobile
+            img
+              max-width: 80vw
+    img
+      max-width: 100%
+    .embed_pdf embed
+      width: 100%
+      min-height: 30rem
+  .comments
+    max-width: 100%

@@ -14,7 +14,7 @@ hexo.extend.tag.register('pdf', function(args){
   var sRtn = '';
 
   if (args.length && rUrl.test(args[0])) {
-    sRtn = '<div class="embed_pdf"><embed src="' + args[0] + '" width="100%" type="application/pdf" /></div>';
+    sRtn = '<div class="embed_pdf"><embed src="' + args[0] + '" type="application/pdf" /></div>';
   }
 
   return sRtn;
@@ -62,7 +62,7 @@ hexo.extend.tag.register('google_photo_album', function(args){
         // if (sDesp) sRtn += '<p>' + sDesp + '</p>';
         sRtn += '<div class="album_container"><div class="google_photo_album">';
         arrPhotos.forEach(function(photo) {
-          sRtn += '<a href="' + photo + '=w3840"><img src="' + photo + '=h400" /></a>';
+          sRtn += '<a href="' + photo + '=w8064"><img src="' + photo + '=h400" /></a>';
         });
         sRtn += '</div></div>';
       }

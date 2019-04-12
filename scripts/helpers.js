@@ -14,18 +14,29 @@ hexo.extend.helper.register('hexo_version', function() {
 });
 
 hexo.extend.helper.register('page_anchor', function(str) {
+  var hexo_obj = this;
   var $ = cheerio.load(str, {decodeEntities: false});
-  var headings = $('h1, h2, h3, h4, h5, h6');
 
-  if (!headings.length) return str;
+  // var headings = $('h1, h2, h3, h4, h5, h6');
+  // if (headings.length) {
+  //   headings.each(function() {
+  //     var id = $(this).attr('id');
+  //     $(this)
+  //       .addClass('article_heading')
+  //       .append('<a class="article_anchor" href="#' + id + '" aria-hidden="true"></a>');
+  //   });
+  // }
 
-  headings.each(function() {
-    var id = $(this).attr('id');
-
-    $(this)
-      .addClass('article_heading')
-      .append('<a class="article_anchor" href="#' + id + '" aria-hidden="true"></a>');
-  });
+  var imgs = $('img');
+  if (imgs.length) {
+    imgs.each(function() {
+      if ($(this).parent().is('code') != true) {
+        var src = $(this).attr('src');
+        var title = ($(this).attr('alt') || $(this).attr('title'));
+        $(this).wrap('<a href="' + hexo_obj.url_for(src) + '" data-lightbox="lightbox" data-title="' + title + '"></a>');
+      }
+    });
+  }
 
   return $.html();
 });
@@ -45,16 +56,17 @@ hexo.extend.helper.register('appendToArray', function(arr, item) {
 });
 
 hexo.extend.helper.register('isCurrentPath', function (path = '/') {
+  var hexo_obj = this;
   var rUrl = /^\w+:\/\/[^\/]+?/;
-  var currentPath = this.path.replace(/^[^/].*/, '/$&');
+  var currentPath = hexo_obj.path.replace(/^[^/].*/, '/$&');
 
   if (rUrl.test(path)) {
-    currentPath = this.url;
+    currentPath = hexo_obj.url;
     if (path[path.length - 1] === '/') path += 'index.html';
     return (currentPath === path);
-  } else if (path.startsWith(this.url_for(this.config.archive_dir))) {
-    currentPath = this.url;
-    return ((currentPath.indexOf('/' + this.config.archive_dir + '/') >= 0) ||
+  } else if (path.startsWith(hexo_obj.url_for(hexo_obj.config.archive_dir))) {
+    currentPath = hexo_obj.url;
+    return ((currentPath.indexOf('/' + hexo_obj.config.archive_dir + '/') >= 0) ||
             (currentPath.indexOf('/tags/') >= 0) || (currentPath.indexOf('/categories/') >= 0));
   } else {
     path = path.replace(/\/index\.html$/, '/');

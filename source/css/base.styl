@@ -46,6 +46,9 @@ ol, ul
 .site_main
   grid-area: main
 
+.site_content
+  grid-area: content
+
 .site_aside
   grid-area: aside
 
@@ -53,20 +56,30 @@ ol, ul
   grid-area: footer
 
 .site_footer
-  padding: 1rem 2rem
+  width: 100%
   background-color: color_footer_bg
-  color: color_footer_text
   opacity: 0.5
-  display: grid
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
-  align-items: center;
-  .footer_copyright
-    font-size: small
-    text-align: left
-  .footer_links
-    text-align: right
-  a
-    color: color_home_link
-    &:hover
-      color: color_home_link_hover
-      text-decoration: underline
+  color: color_footer_text
+  .container
+    max-width: site_width
+    margin: 0 auto
+    padding: 1rem 2rem
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+    align-items: center;
+    @media mq_mobile
+      width: site_width_mobile
+    .footer_copyright
+      font-size: small
+      text-align: left
+    .footer_links
+      text-align: right
+      .fa
+        font-size: large
+      a + a
+        margin-left: 1rem
+    a
+      color: color_home_link
+      &:hover
+        color: color_home_link_hover
+        text-decoration: underline
