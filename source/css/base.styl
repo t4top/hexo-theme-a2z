@@ -15,9 +15,7 @@ html, body
 
 body
   width: 100%
-  grid-gap: 0
   font-family: font_default
-  display: grid
 
 a
   text-decoration: none
@@ -30,6 +28,14 @@ ol, ul
 
 .hideme
   display: none
+
+.grayscale
+  -webkit-filter: grayscale(100%)
+  -moz-filter: grayscale(100%)
+  -ms-filter: grayscale(100%)
+  -o-filter: grayscale(100%)
+  filter: grayscale(100%)
+  filter: gray /* IE 6-9 */
 
 .site_nav
   grid-area: nav

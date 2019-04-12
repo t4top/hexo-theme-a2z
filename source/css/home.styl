@@ -2,6 +2,7 @@
 
 body
   overflow-x: hidden
+  display: grid
   grid-template-columns: auto
   grid-template-rows: 5.5rem 2fr 3fr 4.5rem
   grid-template-areas: 'nav' 'header' 'main' 'footer'
@@ -12,6 +13,7 @@ body
     font-weight: 700
     color: color_home_btn
     background-color: color_home_btn_hover
+    border: 1px solid color_home_btn
     opacity: 0.5
     &:hover
       color: color_home_btn_hover
@@ -51,8 +53,6 @@ body
     left: 0
     overflow: hidden
     background-color: color_bg
-    -webkit-filter: grayscale(100%)
-    filter: grayscale(100%)
     @media mq_mobile
       background: url("//unsplash.it/600/400") center center / cover no-repeat
   #bg_video
@@ -93,7 +93,6 @@ body
       color: color_active_link_bg
     img
       max-width: 100%
-      border: 0
       border-radius: 50%
       border: 1px solid alpha(color_footer_bg, 0.5)
       // clip-path: circle()

@@ -10,7 +10,7 @@
     </div>
 </header>
 <main class="site_main">
-    <div class="bg">
+    <div class="bg grayscale">
         <video autoplay muted loop id="bg_video" poster="{{ bg_img_path }}">
             <source src="{{ bg_video_path }}" type="video/mp4">
         </video>
