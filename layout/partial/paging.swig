@@ -4,7 +4,7 @@
     <span class="page_nav_prev">
     {% if (page.prev) %}
       <a href="{{ url_for(page.prev.path) }}" title="{{ page.prev.title }}">
-        <span class="page_nav_arrow">&laquo;</span>
+        <i class="fa fa-arrow-left"></i>
         <strong>{{ page.prev.title }}</strong>
       </a>
     {% endif %}
@@ -13,7 +13,7 @@
     {% if (page.next) %}
       <a href="{{ url_for(page.next.path) }}" title="{{ page.next.title }}">
         <strong>{{ page.next.title }}</strong>
-        <span class="page_nav_arrow">&raquo;</span>
+        <i class="fa fa-arrow-right"></i>
       </a>
     {% endif %}
     </span>
@@ -24,7 +24,7 @@
   <nav class="page_nav">
     <span class="page_nav_prev">
     {% if (page.prev) %}
-      <a href="{{ url_for(page.prev_link) }}" title="Page {{ page.prev }}">&laquo; Newer Posts</a>
+      <a href="{{ url_for(page.prev_link) }}" title="Page {{ page.prev }}"><i class="fa fa-arrow-left"></i> NEWER POSTS</a>
     {% endif %}
     </span>
     <span class="page_nav_current">
@@ -32,7 +32,7 @@
     </span>
     <span class="page_nav_next">
     {% if (page.next) %}
-      <a href="{{ url_for(page.next_link) }}" title="Page {{ page.next }}">Older Posts&raquo;</a>
+      <a href="{{ url_for(page.next_link) }}" title="Page {{ page.next }}">OLDER POSTS <i class="fa fa-arrow-right"></i></a>
     {% endif %}
     </span>
   </nav>
