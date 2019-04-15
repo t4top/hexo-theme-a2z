@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.title }}</title>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="{{ url }}">
 <!-- RSS -->
 {% if theme.rss %}
@@ -25,6 +25,7 @@
     {{ js(val) }}
   {% endfor %}
 
+  <meta http-equiv="x-dns-prefetch-control" content="on">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
   <link rel="dns-prefetch" href="//code.jquery.com">

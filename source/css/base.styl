@@ -63,10 +63,10 @@ ol, ul
   .container
     max-width: site_width
     margin: 0 auto
-    padding: 1rem 2rem
-    display: grid
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
-    align-items: center;
+    padding: 1rem
+    display: flex
+    align-items: baseline
+    justify-content: space-between
     @media mq_mobile
       width: site_width_mobile
     .footer_copyright
@@ -77,7 +77,7 @@ ol, ul
       .fa
         font-size: large
       a + a
-        margin-left: 1rem
+        margin-left: 0.8rem
     a
       color: color_home_link
       &:hover

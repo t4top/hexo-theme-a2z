@@ -13,6 +13,8 @@ body
   width: 100%
   background-color: color_navbar_bg
   border-bottom: 1px solid color_bg
+  @media mq_min_height
+    position: initial
   .container
     height: navbar_height
     max-width: site_width
@@ -20,13 +22,13 @@ body
     padding: 0 1rem
     display: flex
     align-items: center
+    flex-wrap: wrap
     @media mq_mobile
       width: site_width_mobile
     a
       color: color_link
       font-weight: 800
     .nav
-      max-width: 60%
       margin-left: auto
       text-align: right
       display: flex
