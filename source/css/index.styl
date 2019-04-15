@@ -1,7 +1,6 @@
 @import "page"
 
 .site_main 
-  // background-color: color_blog_bg
   .container
     padding: 1rem
     display: grid
@@ -24,14 +23,14 @@
     background-color: color_blog_post_bg
     border: 1px solid color_blog_post_border_line
     box-shadow: 0 1px 7px color_blog_post_border_shadow
-    width: calc(33% - 0.3rem)
+    width: 32%
     margin-bottom: 1rem
     display: flex
     flex-direction: column
     justify-content: space-between
     &:nth-child(1), &:nth-child(2)
-      width: calc(50% - 0.5rem)
-    @media mq_mobile
+      width: 49%
+    @media mq_min_width
       flex-direction: row
       &:nth-child(n)
         width: 100%
@@ -67,8 +66,55 @@
       margin-left: auto
 
 .site_aside
-  strong
-    display: block
-    text-transform: uppercase
-  a + a
-    padding: 5px
+  width: 100%
+  min-width: 15rem
+  .wrapper
+    border-left: 1px solid color_line
+    padding: 0 1rem
+    .sidebar_toc
+      display: block
+    @media mq_mobile
+      border: 0
+      padding: 0
+      .sidebar_toc
+        display: none
+    div
+      width: 100%
+      display: block
+      strong
+        display: block
+        text-transform: uppercase
+    .sidebar_toc
+      .toc
+        padding: 0
+        margin: 0
+        .toc-number
+          font-size: small
+          color: color_text
+        .toc-child
+          padding-left: 0.8rem
+    .sidebar_category
+      ul, li
+        padding: 0
+        margin: 0
+      .category-list-count
+        font-size: small
+        padding-left: 0.5rem
+      .category-list-count::before
+        content: '('
+      .category-list-count::after
+        content: ')'
+    .sidebar_tagcloud
+      .tagcloud
+        line-height: 2.4rem
+        a
+          border: 1px solid color_line
+          padding: 0.5rem
+          &:hover
+            background-color: color_line
+    .sidebar_toc::after, .sidebar_category::after
+      content: ''
+      display: block
+      border-top: 1px solid color_line
+      margin-top: 1rem
+      padding-top: 1rem
