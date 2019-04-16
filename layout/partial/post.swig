@@ -1,6 +1,6 @@
 {% if trim(post.content) != "" %}
 <article id="{{ post.layout }}-{{ post.slug }}-{{ url }}" class="post" itemscope itemtype="http://schema.org/Article" itemprop="blogPost" data-scroll-reveal>
-  <span class="post_share_top"><strong>Share This Post:</strong>{{ partial('widget/share') }}</span>
+  <span class="post_share_top"><strong>Share:</strong>{{ partial('widget/share') }}</span>
   <div class="post_title"><h1 itemprop="name">{{ post.title }}</h1></div>
   <div class="post_meta">
     {% if post.author %}
@@ -30,6 +30,6 @@
   </div>
   {{ partial('widget/img', { src: post.coverimage, title: post.title, imgcls: 'post_coverimage', lightbox: true }) }}
   <div class="post_content">{{ page_anchor(post.more) }}</div>
-  <div class="post_share_down"><strong>Share This Post:</strong>{{ partial('widget/share') }}</div>
+  <div class="post_share_down"><strong>Share:</strong>{{ partial('widget/share') }}</div>
 </article>
 {% endif %}

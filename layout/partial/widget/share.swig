@@ -6,12 +6,14 @@
 {% else %}
   {% set sh_summary = encodeURIComponent(config.description) %}
 {% endif %}
-{% set sh_image = "" %} {# TODO #}
+{% set sh_image = page.thumbnail || page.coverimage || theme.favicon %}
 
 <!-- Facebook -->
 <a class="share_facebook" href="https://www.facebook.com/sharer.php?u={{ sh_url }}" target="_blank" title="Facebook" data-url="{{ url }}" data-id="{{ page._id }}"><i class="fa fa-facebook-official"></i></a>
 <!-- Twitter -->
 <a class="share_twitter" href="https://twitter.com/intent/tweet?url={{ sh_url }}&text={{ sh_title }}" target="_blank" title="Twitter" data-url="{{ url }}" data-id="{{ page._id }}"><i class="fa fa-twitter"></i></a>
+<!-- WhatsApp -->
+<a class="share_whatsapp" href="whatsapp://send?text={{ sh_url }}" target="_blank" title="WhatsApp" data-url="{{ url }}" data-id="{{ page._id }}"><i class="fa fa-whatsapp"></i></a>
 <!-- PInterest -->
 <a class="share_pinterest" href="https://pinterest.com/pin/create/button/?url={{ sh_url }}&description={{ sh_summary }}&media={{ sh_image }}" target="_blank" title="Pinterest" data-url="{{ url }}" data-id="{{ page._id }}"><i class="fa fa-pinterest"></i></a>
 <!-- Xing -->

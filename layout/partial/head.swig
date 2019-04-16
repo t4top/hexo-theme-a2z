@@ -11,7 +11,7 @@
   {{ css('css/'+ page.layout) }}
 {% else %}
   <!-- Open Graph -->
-  {{ open_graph({ image: page.thumbnail }) }}
+  {{ open_graph({ image: page.thumbnail||page.coverimage||theme.favicon }) }}
   <!-- Icon -->
   <!-- CSS -->
   {% set head_css = getEmptyArray() %}
