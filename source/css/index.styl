@@ -5,7 +5,7 @@
     padding: 1rem
     display: grid
     grid-gap: 1rem
-    grid-template-columns: 4fr 1fr
+    grid-template-columns: 4fr minmax(15rem, 1fr)
     grid-template-areas: 'content aside'
     @media mq_mobile
       grid-template-columns: auto
@@ -66,8 +66,6 @@
       margin-left: auto
 
 .site_aside
-  width: 100%
-  min-width: 15rem
   .wrapper
     border-left: 1px solid color_line
     padding: 0 1rem
@@ -79,7 +77,6 @@
       .sidebar_toc
         display: none
     div
-      width: 100%
       display: block
       strong
         display: block
@@ -106,12 +103,15 @@
         content: ')'
     .sidebar_tagcloud
       .tagcloud
-        line-height: 2.4rem
+        display: flex
+        flex-wrap: wrap
+        align-items: baseline
         a
-          border: 1px solid color_line
-          padding: 0.5rem
-          &:hover
-            background-color: color_line
+          text-decoration: underline
+          &::before
+            content: '#'
+          &:not(:last-child)
+            margin-right: 0.4rem
     .sidebar_toc::after, .sidebar_category::after
       content: ''
       display: block
