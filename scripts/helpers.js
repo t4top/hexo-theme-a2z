@@ -2,32 +2,61 @@
 
 var cheerio = require('cheerio');
 
+///* Only for DEBUGGING ->
 var util = require('util');
 var log = require('debug');
+
 function printObj(obj) {
   log.log("Inspect:");
   log.log(util.inspect(obj, {depth: null}));
 }
 
+var tabCnt = 0;
+function logCallback(str, direction) {
+  if (direction > 0) tabCnt += 1;
+  for (var i = 0; i < tabCnt; i++) {
+    str = ' ' + str;
+  }
+  if (direction < 0) tabCnt -= 1;
+  log.log(str);
+}
+
+hexo.extend.helper.register('entryLog', function (str) {
+  logCallback(str + ' - enter', 1);
+  return '';
+});
+
+hexo.extend.helper.register('exitLog', function (str) {
+  logCallback(str + ' - exit', -1);
+  return '';
+});
+
 hexo.extend.helper.register('hexo_version', function() {
   return this.env.version;
 });
+// <- Only for DEBUGGING */
+
+
+// -- Local Functions --
+
+function appendToArray(arr, items) {
+  if (Array.isArray(items)) {
+    items.forEach(function(item) {
+      if (arr.indexOf(item) < 0) arr.push(item);
+    });
+  } else {
+    if (arr.indexOf(items) < 0) arr.push(items);
+  }
+}
+
+
+// -- Hexo Helper Functions --
 
 hexo.extend.helper.register('page_anchor', function(str) {
   var hexo_obj = this;
   var $ = cheerio.load(str, {decodeEntities: false});
-
-  // var headings = $('h1, h2, h3, h4, h5, h6');
-  // if (headings.length) {
-  //   headings.each(function() {
-  //     var id = $(this).attr('id');
-  //     $(this)
-  //       .addClass('article_heading')
-  //       .append('<a class="article_anchor" href="#' + id + '" aria-hidden="true"></a>');
-  //   });
-  // }
-
   var imgs = $('img');
+
   if (imgs.length) {
     imgs.each(function() {
       if ($(this).parent().is('code') != true) {
@@ -41,18 +70,33 @@ hexo.extend.helper.register('page_anchor', function(str) {
   return $.html();
 });
 
-var emptyArr = [];
-hexo.extend.helper.register('getEmptyArray', function() {
-  emptyArr = [];
-  return emptyArr;
+var htmlObj = {};
+hexo.extend.helper.register('initHtmlObj', function() {
+  htmlObj = { head_css: [], head_js: [], body_js: [] };
+  if (this.theme.head_css) appendToArray(htmlObj.head_css, this.theme.head_css);
+  if (this.theme.head_js) appendToArray(htmlObj.head_js, this.theme.head_js);
+  if (this.theme.body_js) appendToArray(htmlObj.body_js, this.theme.body_js);
+
+  return '';
 });
 
-hexo.extend.helper.register('appendToArray', function(arr, item) {
-  if (!Array.isArray(arr)) arr = new Array();
-  if (Array.isArray(item) || arr.indexOf(item) < 0) {
-    arr.push(item);
-  }
+hexo.extend.helper.register('appendHeadCSS', function(path) {
+  appendToArray(htmlObj.head_css, path);
   return '';
+});
+
+hexo.extend.helper.register('appendHeadJS', function(path) {
+  appendToArray(htmlObj.head_js, path);
+  return '';
+});
+
+hexo.extend.helper.register('appendBodyJS', function(path) {
+  appendToArray(htmlObj.body_js, path);
+  return '';
+});
+
+hexo.extend.helper.register('getHtmlObj', function() {
+  return htmlObj;
 });
 
 hexo.extend.helper.register('isCurrentPath', function (path = '/') {
@@ -78,7 +122,7 @@ hexo.extend.helper.register('isCurrentPath', function (path = '/') {
 
 hexo.extend.helper.register('createArchiveArray', function(posts) {
   var postsObj = {};
-  posts.forEach(function(post, i) {
+  posts.forEach(function(post) {
     var year = post.date.year().toString();
     var month = post.date.format('MM').toString();
 

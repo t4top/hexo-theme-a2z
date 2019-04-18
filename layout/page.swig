@@ -1,3 +1,4 @@
+{{ initHtmlObj() }}
 {{ partial('partial/navbar') }}
 {{ partial('partial/header') }}
 <main class="site_main">

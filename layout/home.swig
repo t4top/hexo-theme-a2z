@@ -1,3 +1,4 @@
+{{ initHtmlObj() }}
 {% set bg_video_path = 'https://www.w3schools.com/howto/rain.mp4' %}
 {% set bg_img_path = url_for('//unsplash.it/1920/1080') %}
 <nav class="site_nav">

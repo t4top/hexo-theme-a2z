@@ -1,3 +1,4 @@
+{{ initHtmlObj() }}
 {% set title = '' %}
 {% if (page.category) %}
   {% set title = page.category %}

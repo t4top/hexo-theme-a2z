@@ -21,7 +21,3 @@
     {% endif %}
   </div>
 </footer>
-<!-- JS -->
-{% for val in theme.body_js %}
-  {{ js(val) }}
-{% endfor %}

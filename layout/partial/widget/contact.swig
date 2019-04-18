@@ -1,5 +1,5 @@
-{{ appendToArray(theme.body_js, 'js/widget/contact') }}
-{{ appendToArray(theme.head_css, 'css/widget/contact') }}
+{{ appendHeadCSS('css/widget/contact') }}
+{{ appendBodyJS('js/widget/contact') }}
 <section class="contact">
     <h1>Get in Touch</h1>
     <form class="form_ajax" id="contact_form" method="post" action="https://script.google.com/macros/s/AKfycbxM-sGI6OtXQsRspTTteZ0hLsdsUzYvJMewWaSIgp9C3ZTN7ls/exec">
