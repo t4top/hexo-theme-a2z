@@ -16,38 +16,36 @@ body
       width: 100%
     .post_meta
       display: flex
+      flex-wrap: wrap
       align-items: center
       margin-bottom: 1rem
-      .meta_author
+      .meta_author_img
         display: flex
         align-items: center
-        .fa
-          font-size: extra_large
-          margin: 0
-          padding: 0
         img
-          width: 3rem
+          width: 3.5rem
           border-radius: 50%
-          border: 1px solid alpha(color_footer_bg, 0.5)
-        .author::before
-          content: ''
-          margin-left: 0.5rem
-        .author::after
-          content: '\2022'
-          margin: 0 1rem
-      .meta_date .updated
-        margin-left: 0.5rem
-      .meta_comment::before
+          border: 1px solid color_footer_bg
+          margin-right: 0.5rem
+          display: block
+          vertical-align: middle
+      .meta_date_comment
+        display: flex
+        flex-wrap: wrap
+        align-items: flex-start
+      .fa
+        font-size: normal
+        margin-right: 0.5rem
+        padding: 0
+      .meta_comment::before, .author + .author::before
         content: '\2022'
-        margin: 0 1rem
+        margin: 0 0.8rem
     .post_content
       font-size: normal
-    .post_share_top
+    .post_share_top, .post_share_down
       display: flex
-      justify-content: right
-      @media mq_mobile
-        margin-bottom: 1rem
-    .post_share, .post_share_top, .post_share_down
+      flex-wrap: wrap
+      justify-content: flex-end
       .share_facebook
         color: #3A559F
       .share_twitter
@@ -61,31 +59,32 @@ body
       .share_linkedin
         color: #0077B5
       strong
-        display: inline-block
         font-size: normal
-        @media mq_mobile
-          display: block
       a
-        display: inline-block
-        font-size: 30px
-        padding-left: 10px
-        transition: transform 500ms
-        &:hover
-          transform: scale(1.2)
+        font-size: large
+        padding-left: 0.6rem
+    .post_share_top
+      margin-bottom: 1rem
+    .post_share_down
+      margin-top: 1rem
     .fa
       margin-right: 0.3rem
     .album_container
       padding: 1rem 0
       text-align: center
       .google_photo_album
-        display: flex
-        flex-wrap: wrap
-        justify-content: center
+        column-count: 4
+        column-gap: 0.5rem
         a
-          margin: 0.2rem
-          @media mq_mobile
-            img
-              max-width: 80vw
+          margin: 0.2rem 0
+        @media mq_ultrawide
+          column-count: 5
+        @media mq_mobile
+          column-count: 3
+        @media mq_slender
+          column-count: 2
+        @media mq_watch
+          column-count: 1
     img
       max-width: 100%
     .embed_pdf embed

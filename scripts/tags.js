@@ -63,7 +63,7 @@ hexo.extend.tag.register('google_photo_album', function(args){
         // if (sDesp) sRtn += '<p>' + sDesp + '</p>';
         sRtn += '<div class="google_photo_album">';
         arrPhotos.forEach(function(photo) {
-          sRtn += '<a href="' + photo + '=w8064"><img src="' + photo + '=h400" /></a>';
+          sRtn += '<a href="' + photo + '=w8064"><img src="' + photo + '=w400" /></a>';
         });
         sRtn += '</div></div>';
       }
