@@ -17,11 +17,7 @@
         <h2 itemprop="name">{{ post.title }}</h2>
       </a>
       <p>
-        {% if post.excerpt %}
-          {{ post.excerpt }}
-        {#{% else %}
-          {{ truncate(post.content, {length: 300}) }}#}
-        {% endif %}
+        {{ post.description || post.excerpt }}
       </p>
     </div>
     {% if post.tags.length > 0 %}
