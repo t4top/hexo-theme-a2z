@@ -20,7 +20,9 @@
       <div class="meta_author">
       {% for author in post.author.split(',') %}
         {% set author = author.trim() %}
-        <span class="author" itemprop="author">By <a href="{{ url_for(theme.menu[author]) }}" title="{{ author }}">{{ author }}</a></span>
+        {% if loop.first %}By {% endif %}
+        {% if !loop.first %}, {% endif %}
+        <span class="author" itemprop="author"><a href="{{ url_for(theme.menu[author]) }}" title="{{ author }}">{{ author }}</a></span>
       {% endfor %}
       </div>
       {% endif %}
