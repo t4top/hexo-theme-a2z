@@ -20,18 +20,14 @@
 {% set page.layout = 'index' %}
 
 {{ partial('partial/navbar') }}
-{{ partial('partial/header') }}
 <main class="site_main">
   <div class="container">
-    <section class="site_content">
-      <div class="posts">
-      {% for post in page.posts.sort('-date') %}
-        {{ partial('partial/excerpt', {post: post}) }}
-      {% endfor %}
-      </div>
-      {{ partial('partial/paging') }}
-    </section>
-    {{ partial('partial/sidebar') }}
+    <div class="posts">
+    {% for post in page.posts.sort('-date') %}
+      {{ partial('partial/excerpt', {post: post}) }}
+    {% endfor %}
+    </div>
+    {{ partial('partial/paging') }}
   </div>
 </main>
 {{ partial('partial/footer') }}

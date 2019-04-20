@@ -1,94 +1,151 @@
 @import "index"
 
-body
-  grid-template-rows: navbar_height auto 4.5rem
-  grid-template-areas: 'nav' 'main' 'footer'
-  @media mq_mobile
-    grid-template-rows: navbar_height auto 4.5rem
-    grid-template-areas: 'nav' 'main' 'footer'
-
-.site_content
-  .post
-    font-size: small
-    .post_title h1
-      font-size: extra_large
-    .post_coverimage
-      width: 100%
-    .post_meta
-      display: flex
-      flex-wrap: wrap
-      align-items: center
-      margin-bottom: 1rem
-      .meta_author_img
-        display: flex
-        align-items: center
-        img
-          width: 3.5rem
-          border-radius: 50%
-          border: 1px solid color_footer_bg
-          margin-right: 0.5rem
-          display: block
-          vertical-align: middle
-      .meta_date_comment
+.site_main
+  .container
+    padding: 1rem
+    display: grid
+    grid-gap: 1rem
+    grid-template-columns: 4fr minmax(15rem, 1fr)
+    grid-template-areas: 'content aside'
+    @media mq_mobile
+      grid-template-columns: auto
+      grid-template-rows: auto auto
+      grid-template-areas: 'content' 'aside'
+  .site_content
+    .post
+      font-size: small
+      .post_title h1
+        font-size: extra_large
+      .post_coverimage
+        width: 100%
+      .post_meta
         display: flex
         flex-wrap: wrap
-        align-items: flex-start
-      .fa
+        align-items: center
+        margin-bottom: 1rem
+        .meta_author_img
+          display: flex
+          align-items: center
+          img
+            width: 3.5rem
+            border-radius: 50%
+            border: 1px solid color_footer_bg
+            margin-right: 0.5rem
+            display: block
+            vertical-align: middle
+        .meta_date_comment
+          display: flex
+          flex-wrap: wrap
+          align-items: flex-start
+        .fa
+          font-size: normal
+          margin-right: 0.5rem
+          padding: 0
+        .meta_comment::before, .author + .author::before
+          content: '\2022'
+          margin: 0 0.8rem
+      .post_content
         font-size: normal
-        margin-right: 0.5rem
-        padding: 0
-      .meta_comment::before, .author + .author::before
-        content: '\2022'
-        margin: 0 0.8rem
-    .post_content
-      font-size: normal
-    .post_share_top, .post_share_down
-      display: flex
-      flex-wrap: wrap
-      justify-content: flex-end
-      .share_facebook
-        color: #3A559F
-      .share_twitter
-        color: #1BB2E9
-      .share_whatsapp
-        color: #00E676
-      .share_pinterest
-        color: #CB2027
-      .share_xing
-        color: #1E8687
-      .share_linkedin
-        color: #0077B5
-      strong
-        font-size: normal
-      a
-        font-size: large
-        padding-left: 0.6rem
-    .post_share_top
-      margin-bottom: 1rem
-    .post_share_down
-      margin-top: 1rem
-    .fa
-      margin-right: 0.3rem
-    .album_container
-      padding: 1rem 0
-      text-align: center
-      .google_photo_album
-        column-count: 4
-        column-gap: 0.5rem
+      .post_share_top, .post_share_down
+        display: flex
+        flex-wrap: wrap
+        justify-content: flex-end
+        .share_facebook
+          color: #3A559F
+        .share_twitter
+          color: #1BB2E9
+        .share_whatsapp
+          color: #00E676
+        .share_pinterest
+          color: #CB2027
+        .share_xing
+          color: #1E8687
+        .share_linkedin
+          color: #0077B5
+        strong
+          font-size: normal
         a
-          margin: 0.2rem 0
-        @media mq_ultrawide
-          column-count: 5
-        @media mq_mobile
-          column-count: 3
-        @media mq_slender
-          column-count: 2
-        @media mq_watch
-          column-count: 1
-    img
+          font-size: large
+          padding-left: 0.6rem
+      .post_share_top
+        margin-bottom: 1rem
+      .post_share_down
+        margin-top: 1rem
+      .fa
+        margin-right: 0.3rem
+      .album_container
+        padding: 1rem 0
+        text-align: center
+        .google_photo_album
+          column-count: 4
+          column-gap: 0.5rem
+          a
+            margin: 0.2rem 0
+          @media mq_ultrawide
+            column-count: 5
+          @media mq_mobile
+            column-count: 3
+          @media mq_slender
+            column-count: 2
+          @media mq_watch
+            column-count: 1
+      img
+        max-width: 100%
+      .embed_pdf embed
+        width: 100%
+        min-height: 30rem
+    .comments
       max-width: 100%
-    .embed_pdf embed
-      width: 100%
-      min-height: 30rem
-  .comments
-    max-width: 100%
+  .site_aside
+    .wrapper
+      border-left: 1px solid color_line
+      padding: 0 1rem
+      .sidebar_toc
+        display: block
+      @media mq_mobile
+        border: 0
+        padding: 0
+        .sidebar_toc
+          display: none
+      div
+        display: block
+        strong
+          display: block
+          text-transform: uppercase
+      .sidebar_toc
+        .toc
+          padding: 0
+          margin: 0
+          .toc-number
+            font-size: small
+            color: color_text
+          .toc-child
+            padding-left: 0.8rem
+      .sidebar_category
+        ul, li
+          padding: 0
+          margin: 0
+        .category-list-count
+          font-size: small
+          padding-left: 0.5rem
+        .category-list-count::before
+          content: '('
+        .category-list-count::after
+          content: ')'
+      .sidebar_tagcloud
+        .tagcloud
+          display: flex
+          flex-wrap: wrap
+          align-items: baseline
+          a
+            text-decoration: underline
+            &::before
+              content: '#'
+            &:not(:last-child)
+              margin-right: 0.4rem
+      .sidebar_toc::after, .sidebar_category::after
+        content: ''
+        display: block
+        border-top: 1px solid color_line
+        margin-top: 1rem
+        padding-top: 1rem
