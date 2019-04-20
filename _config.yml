@@ -1,15 +1,14 @@
 # a2z theme Configuration
 
 # Navbar menu
-home: https://www.akinbosoyezaimoglu.com/
-
+home: /
 menu:
   Ozlem: https://ozlem.akinbosoyezaimoglu.com/
   Deniz: https://deniz.akinbosoyezaimoglu.com/
   Temi: https://temi.akinbosoyezaimoglu.com/
-  Blogs: https://home.akinbosoyezaimoglu.com/posts/
-  Archives: https://home.akinbosoyezaimoglu.com/allarchives/
-  Contact Us: https://home.akinbosoyezaimoglu.com/contact/
+  Blogs: /posts/
+  Archives: /allarchives/
+  Contact Us: /contact/
 
 # Authors icons
 authors_icons:
