@@ -68,8 +68,13 @@ lightbox.option({
 
 // LightGallery init
 $(document).ready(function() {
-    $(".google_photo_album").lightGallery({
-      download: false,
-      preload: 5
+  var cls = ".google_photo_album .photos";
+  var width = Math.max(window.screen.height, window.screen.width); // * window.devicePixelRatio;
+  $(cls + " a").each(function() {
+    $(this).attr('href', $(this).attr('href') + "=w" + width);
+  });
+  $(cls).lightGallery({
+    download: false,
+    preload: 5
   });
 });

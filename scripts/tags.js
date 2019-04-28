@@ -58,12 +58,13 @@ hexo.extend.tag.register('google_photo_album', function(args){
       }
 
       if (arrPhotos.length > 0) {
-        sRtn += '<div class="album_container">';
+        sRtn += '<div class="google_photo_album">';
         if (sTitle) sRtn += '<h3>' + sTitle + '</h3>';
         // if (sDesp) sRtn += '<p>' + sDesp + '</p>';
-        sRtn += '<div class="google_photo_album">';
+        sRtn += '<p>(' + arrPhotos.length + ' photos)</p>'
+        sRtn += '<div class="photos">';
         arrPhotos.forEach(function(photo) {
-          sRtn += '<a href="' + photo + '=w8064"><img src="' + photo + '=w400" /></a>';
+          sRtn += '<a href="' + photo + '"><img src="' + photo + '=w400" /></a>';
         });
         sRtn += '</div></div>';
       }
