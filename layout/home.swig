@@ -1,6 +1,6 @@
 {{ initHtmlObj() }}
 {% set bg_video_path = 'https://www.w3schools.com/howto/rain.mp4' %}
-{% set bg_img_path = url_for('//unsplash.it/1920/1080') %}
+{% set bg_img_path = url_for('https://lh3.googleusercontent.com/1pwEf8i9dXZ3m1wsM0pdpt5c4msedRa2W-4hoAJz-5P6q_Qd3RahoqdDTVJAagfUT1KYMQohUbTE5_gqpeu83jCQ8iJxqlSrKSiJGei4EsB2-FJ4vdS3ThhjrPwXtH6hCJSlXspBpWk') %}
 <nav class="site_nav">
     <a href="{{ url_for(theme.menu['Contact Us']) }}" class="btn" title="Get in touch">Contact Us</a>
 </nav>
@@ -19,19 +19,19 @@
     <div class="cards">
         <a href="{{ url_for(theme.menu['Ozlem']) }}" title="Ozlem">
             <div class="card">
-                <img src="//unsplash.it/g/400?image=1011" alt="Ozlem">
+                <img src="https://lh3.googleusercontent.com/a7rbnpgPE2qjhq-23XFTynEtycERD05rfn_7vPixyJN9_CAJ3bEHz4htAvF2wC0y9PCSTPp_SmtqQIteStGaHd5SR6-5dhjNpiD1Lft_fNIkEI7HpXsYu4sOkaMMjRlyMWBrRlY-dlw" alt="Ozlem">
                 <h2>Ozlem</h2>
             </div>
         </a>
         <a href="{{ url_for(theme.menu['Deniz']) }}" title="Pelumi Deniz">
             <div class="card">
-                <img src="//unsplash.it/g/400?image=669" alt="Pelumi Deniz">
+                <img src="https://lh3.googleusercontent.com/3ByWGDpatMiKAjam08QUYv0flgpuoSuJUh0M73AFLWqk0cnMhzXPQ4Q8JXxGHuXOFK7uRsKnZKCMCdyJJfgvNcssTHEJ5CfR1PB_vLeUlBG8h_PkixzozbGxcH5nZ5CgclQfj07YMzI" alt="Pelumi Deniz">
                 <h2>Deniz</h2>
             </div>
         </a>
         <a href="{{ url_for(theme.menu['Temi']) }}" title="Temi">
             <div class="card">
-                <img src="//unsplash.it/g/400?image=1005" alt="Temi">
+                <img src="https://lh3.googleusercontent.com/5fo4Zw2cglv0WMPOkR21wOvKc9G8ZO8SJwU7cprk_OGV2eGqAsqY0pUruSXXCCpEFvbNiDk9RwB7R4S-M4ERkoE6ou2ovkgZWa2V-3rgqeWyRPLImH4BlbBbc_QZAp2xWTxNLmjYFFw" alt="Temi">
                 <h2>Temi</h2>
             </div>
         </a>
