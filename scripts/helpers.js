@@ -59,7 +59,8 @@ hexo.extend.helper.register('page_anchor', function(str) {
 
   if (imgs.length) {
     imgs.each(function() {
-      if ($(this).parent().is('code') != true) {
+      // process only imgs that are not children of a code or anchor element
+      if (!$(this).parent().is('code') && !$(this).parent().is('a')) {
         var src = $(this).attr('src');
         var title = ($(this).attr('alt') || $(this).attr('title'));
         $(this).wrap('<a href="' + hexo_obj.url_for(src) + '" data-lightbox="lightbox" data-title="' + title + '"></a>');
