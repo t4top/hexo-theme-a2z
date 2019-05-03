@@ -1,7 +1,22 @@
 {
   "name": "hexo-theme-a2z",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.1.0",
+  "description": "Grid based theme for Hexo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t4top/hexo-theme-a2z.git"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "a2z"
+  ],
+  "author": "t4top (https://github.com/t4top)",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/t4top/hexo-theme-a2z/issues"
+  },
+  "homepage": "https://github.com/t4top/hexo-theme-a2z",
   "dependencies": {
     "sync-request": "^6.1.0"
   }
