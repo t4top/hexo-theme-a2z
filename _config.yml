@@ -24,11 +24,11 @@ head_css:
 
 head_js:
   - https://identity.netlify.com/v1/netlify-identity-widget.js
-  - https://code.jquery.com/jquery-3.3.1.min.js
-  - https://cdn.jsdelivr.net/combine/npm/lightgallery,npm/lg-autoplay,npm/lg-fullscreen,npm/lg-thumbnail,npm/lg-video,npm/lg-zoom,npm/lg-pager
 
 body_js:
+  - https://code.jquery.com/jquery-3.3.1.min.js
   - 'js/lightbox.min.js'
+  - https://cdn.jsdelivr.net/combine/npm/lightgallery,npm/lg-autoplay,npm/lg-fullscreen,npm/lg-thumbnail,npm/lg-video,npm/lg-zoom,npm/lg-pager
   - js/main.js
 
 rss: atom.xml
