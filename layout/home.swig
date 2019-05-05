@@ -1,5 +1,5 @@
 {{ initHtmlObj() }}
-{% set bg_video_path = 'https://www.w3schools.com/howto/rain.mp4' %}
+{% set bg_video_path = '' %}
 {% set bg_img_path = url_for('https://lh3.googleusercontent.com/1pwEf8i9dXZ3m1wsM0pdpt5c4msedRa2W-4hoAJz-5P6q_Qd3RahoqdDTVJAagfUT1KYMQohUbTE5_gqpeu83jCQ8iJxqlSrKSiJGei4EsB2-FJ4vdS3ThhjrPwXtH6hCJSlXspBpWk') %}
 <nav class="site_nav">
     <a href="{{ url_for(theme.menu['Contact Us']) }}" class="btn" title="Get in touch">Contact Us</a>
