@@ -13,7 +13,7 @@
       {% set title += "/" + zeroPad(page.month) %}
     {% endif %}
   {% else %}
-    {% set title = 'All Posts' %}
+    {% set title = '' %}
   {% endif %}
 {% endif %}
 {% set page.title = title %}
@@ -22,7 +22,7 @@
 {{ partial('partial/navbar') }}
 <main class="site_main">
   <div class="container">
-    {% if !is_home() %}
+    {% if !is_home() && title %}
     <h1>{{ title }}</h1>
     {% endif %}
     <div class="posts">
