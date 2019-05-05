@@ -73,26 +73,29 @@ hexo.extend.helper.register('page_anchor', function(str) {
 
 var htmlObj = {};
 hexo.extend.helper.register('initHtmlObj', function() {
-  htmlObj = { head_css: [], head_js: [], body_js: [] };
-  if (this.theme.head_css) appendToArray(htmlObj.head_css, this.theme.head_css);
-  if (this.theme.head_js) appendToArray(htmlObj.head_js, this.theme.head_js);
-  if (this.theme.body_js) appendToArray(htmlObj.body_js, this.theme.body_js);
+  var layout = this.page.layout;
+  if (!htmlObj[layout]) {
+    htmlObj[layout] = { head_css: [], head_js: [], body_js: [] };
+  }
+  if (this.theme.head_css) appendToArray(htmlObj[layout].head_css, this.theme.head_css);
+  if (this.theme.head_js) appendToArray(htmlObj[layout].head_js, this.theme.head_js);
+  if (this.theme.body_js) appendToArray(htmlObj[layout].body_js, this.theme.body_js);
 
   return '';
 });
 
 hexo.extend.helper.register('appendHeadCSS', function(path) {
-  appendToArray(htmlObj.head_css, path);
+  appendToArray(htmlObj[this.page.layout].head_css, path);
   return '';
 });
 
 hexo.extend.helper.register('appendHeadJS', function(path) {
-  appendToArray(htmlObj.head_js, path);
+  appendToArray(htmlObj[this.page.layout].head_js, path);
   return '';
 });
 
 hexo.extend.helper.register('appendBodyJS', function(path) {
-  appendToArray(htmlObj.body_js, path);
+  appendToArray(htmlObj[this.page.layout].body_js, path);
   return '';
 });
 

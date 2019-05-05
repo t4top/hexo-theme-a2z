@@ -5,18 +5,18 @@
     {{ partial('partial/head') }}
     <!-- CSS -->
     {% set htmlObj = getHtmlObj() %}
-    {% for val in htmlObj.head_css %}
+    {% for val in htmlObj[page.layout].head_css %}
       {{ css(val) }}
     {% endfor %}
     <!-- JS -->
-    {% for val in htmlObj.head_js %}
+    {% for val in htmlObj[page.layout].head_js %}
       {{ js(val) }}
     {% endfor %}
   </head>
   <body>
     {{ body }}
     <!-- JS -->
-    {% for val in htmlObj.body_js %}
+    {% for val in htmlObj[page.layout].body_js %}
       {{ js(val) }}
     {% endfor %}
   </body>

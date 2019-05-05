@@ -1,3 +1,4 @@
+{% set page.layout = 'index' %}
 {{ initHtmlObj() }}
 {% set title = '' %}
 {% if (page.category) %}
@@ -17,7 +18,6 @@
   {% endif %}
 {% endif %}
 {% set page.title = title %}
-{% set page.layout = 'index' %}
 
 {{ partial('partial/navbar') }}
 <main class="site_main">
