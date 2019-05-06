@@ -1,7 +1,7 @@
 <nav class="site_nav">
   <div class="container">
     <h1 class="logo">
-      <a href="{{ url_for(theme.home) }}" title="Home">AkinbosoyeZaimoglu</a>
+      <a href="{{ config.url }}" title="Home">AkinbosoyeZaimoglu</a>
     </h1>
     <div class="nav">
       {% if theme.rss %}
