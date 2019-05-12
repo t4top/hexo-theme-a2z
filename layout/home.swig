@@ -19,7 +19,7 @@
     <div class="cards">
         <a href="{{ url_for(theme.menu['Ozlem']) }}" title="Ozlem">
             <div class="card">
-                <img src="https://lh3.googleusercontent.com/a7rbnpgPE2qjhq-23XFTynEtycERD05rfn_7vPixyJN9_CAJ3bEHz4htAvF2wC0y9PCSTPp_SmtqQIteStGaHd5SR6-5dhjNpiD1Lft_fNIkEI7HpXsYu4sOkaMMjRlyMWBrRlY-dlw" alt="Ozlem">
+                <img src="https://lh3.googleusercontent.com/dpZqlL4CArTFWxV12_ka47YkBFwAsbtz_LEtVqpiOHWEEUJipvWUKQfkS-XaWzZfguTCfw3IWlHPc0wbqHN-7yF28VEo-ltWUGCtO-JluVMoDkkPbYj3PYtZlBTeUfgfvUPbldDHMiIdds1l3sANVxp-8KEJt3PbJLdJCPpo5TloK6th3zAAi4rBfvJoVivV4A6DupTrEF4rDWlLZBRZ7XOK9xtnViSde8z70ies-kjjp7RIblNpVolXE8hFcR2WdUQ0yRNcAi20F7Q6vVRvkZ4JHovMKS-y55Kq1XMft_GUk5pVKYXswIMumnBO6UmXyNStj0ZacAGoYvVmLsivItd3niMNkAJ63JLnLjx9YxHLAmQf2Wk_M0dJAG39ypG_bJfz4RTMRSM_723RRt8_GXzVOun6FustdLXlY4RFAnpnv9bedqa3Yj9DYyezhL70bM2t0mO-PM9Vl_KwOgAFi1sprJJDmzJ7TnX6WYh6cbzAZCSoQRdZCG0iO9PlRair03qHFT_RnGzTyGaDhbC2bSwP1CS7ymFkU5ga6rfldWakyKTWb5UU2JmsGS1syyN22ySvqYhrrKggGKtCXz6cM1zH8HjRybsw43oG63qkLI22M1qY4XsZeGT0eGobjRQDBhYFZIm4YUzDU8L4uh8pbm1D0hSA87-wbBYg-nIe4UzFl2HE5Xpfqnp40Y9-aic1vglE6lwVLqyY_CP98xS1eovpIg" alt="Ozlem">
                 <h2>Ozlem</h2>
             </div>
         </a>
