@@ -32,6 +32,6 @@ body_js:
   - js/main.js
 
 rss: atom.xml
-disqus_shortname: akinbosoyezaimoglu-com
-google_analytics: UA-131136908-1
+disqus_shortname:
+google_analytics:
 github: t4top/akinbosoyezaimoglu.com
