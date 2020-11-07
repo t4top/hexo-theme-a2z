@@ -1,5 +1,7 @@
 {{ appendHeadCSS('css/widget/contact') }}
 {{ appendBodyJS('js/widget/contact') }}
+{{ appendBodyJS('https://www.recaptcha.net/recaptcha/api.js') }}
+{% set RECAPTCHA_SITE_KEY = "6Lfs-OAZAAAAABs8orj2Nq2kxk5T0IIztD8lwr4d" %}
 <section class="contact">
     <h1>Get in Touch</h1>
     <form class="form_ajax" id="contact_form" method="post" action="https://script.google.com/macros/s/AKfycbxM-sGI6OtXQsRspTTteZ0hLsdsUzYvJMewWaSIgp9C3ZTN7ls/exec">
@@ -30,7 +32,11 @@
             <input id="empty" name="empty" type="text" placeholder="Keep this field empty" />
         </div>
         <div>
-            <button type="submit" id="btn_submit">Submit Comment</button>
+            <button id="btn_submit" class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}" data-callback="onSubmitContact" data-action="submit">Submit Comment</button>
+        </div>
+        <div class="recaptcha_text_badge">
+            This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.
         </div>
     </form>
     <p id="thanks_msg" class="hideme">Thanks a lot for your message.</p>

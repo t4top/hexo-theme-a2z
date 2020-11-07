@@ -54,10 +54,6 @@ function addListener(obj, evt, callback) {
 //-- Business logic --//
 
 window.onload = function(e) { 
-  addListener($("btn_submit"), "click", function(e) {
-    if (validateInput()) sendData();
-    e.preventDefault();
-  });
   addCustomValidity($("name"), "Name is required");
   addCustomValidity($("message"), "Message is required");
   addCustomValidity($("email"), "Email is not valid");
@@ -136,4 +132,8 @@ function errorResponse(items) {
     addClass($(items[pos]), "input_error");
     $(items[pos]).setCustomValidity("Wrong");
   }
+}
+
+function onSubmitContact() {
+  if (validateInput()) sendData();
 }
