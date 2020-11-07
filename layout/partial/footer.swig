@@ -3,16 +3,16 @@
     <div class="footer_copyright">
       &copy; {{ date(Date.now(), 'YYYY') }} {{ config.title or config.author }}
       {#
-      <br />Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> 
-      (Theme: <a href="https://github.com/t4top/" target="_blank">A2Z</a>)
+      <br />Powered by <a href="http://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a> 
+      (Theme: <a href="https://github.com/t4top/" target="_blank" rel="noopener noreferrer">A2Z</a>)
       #}
     </div>
     <div class="footer_links">
       {% if theme.rss %}
-        <a href="{{ url_for(theme.rss) }}" title="RSS" target="_blank" download="{{ theme.rss }}"><i class="fa fa-rss-square"></i></a>
+        <a href="{{ url_for(theme.rss) }}" title="RSS" target="_blank" rel="noopener noreferrer" download="{{ theme.rss }}"><i class="fa fa-rss-square"></i></a>
       {% endif %}
       {% if theme.github %}
-        <a href="https://github.com/{{ theme.github }}" title="Source on Github" target="_blank"><i class="fa fa-github"></i></a>
+        <a href="https://github.com/{{ theme.github }}" title="Source on Github" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
       {% endif %}
     </div>
     {{ partial('widget/google_analytics') }}

@@ -5,7 +5,7 @@
     </h1>
     <div class="nav">
       {% if theme.rss %}
-        <a href="{{ url_for(theme.rss) }}" title="RSS" target="_blank" download="{{ theme.rss }}"><i class="fa fa-rss"></i></a>
+        <a href="{{ url_for(theme.rss) }}" title="RSS" target="_blank" rel="noopener noreferrer" download="{{ theme.rss }}"><i class="fa fa-rss"></i></a>
       {% endif %}
       <input type="checkbox" id="nav_checkbox" class="nav_checkbox" />
       <ul>
