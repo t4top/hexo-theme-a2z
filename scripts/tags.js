@@ -38,7 +38,7 @@ hexo.extend.tag.register('google_photo_album', function(args){
       var match = [];
       var regexTitle = /<\s*meta\s+property="og:title"\s+content="([^"]*)/i;
       var regexDesc = /<\s*meta\s+property="og:description"\s+content="([^"]*)/i;
-      var regexPhoto = /\"(http[^"]+)"\,[0-9^,]+\,[0-9^,]+/ig;
+      var regexPhoto = /\"(https[^"?]+)"\,[0-9]+\,[0-9]+/ig;
 
       var sBody = res.getBody('utf8');
 
