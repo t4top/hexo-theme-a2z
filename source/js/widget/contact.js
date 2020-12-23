@@ -2,7 +2,7 @@
 
 function $(id) {
   return document.getElementById(id);
-} 
+}
 
 function addClass(obj, cls) {
   if (obj) {
@@ -53,7 +53,7 @@ function addListener(obj, evt, callback) {
 
 //-- Business logic --//
 
-window.onload = function(e) { 
+window.onload = function(e) {
   addCustomValidity($("name"), "Name is required");
   addCustomValidity($("message"), "Message is required");
   addCustomValidity($("email"), "Email is not valid");
@@ -70,7 +70,7 @@ function addCustomValidity(obj, sError) {
         obj.setCustomValidity("");
         removeClass(obj, "input_error");
       }
-    });  
+    });
   }
 }
 
@@ -98,21 +98,20 @@ function validateInput() {
   return rtn;
 }
 
-function sendData() {
+function sendData(token) {
   var form = $("contact_form");
   var xhr = createCORSRequest(form.method, form.action);
 
   if (xhr) {
+    var recaptcha = $("recaptcha");
+    if (recaptcha) recaptcha.value = token;
     var fd = new FormData(form);
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4 && xhr.status == 200) {
         $("btn_submit").disabled = false;
         var resp = JSON.parse(xhr.responseText);
-        if ("failed" == resp["result"]) {
-          errorResponse(resp["wrong"]);
-        } else if ("success" == resp["result"]) {
-          successResponse();
-        } else {}
+        if (resp["success"]) successResponse();
+        else errorResponse(resp["wrong"]);
       }
     };
 
@@ -134,6 +133,6 @@ function errorResponse(items) {
   }
 }
 
-function onSubmitContact() {
-  if (validateInput()) sendData();
+function onSubmitContact(token) {
+  if (validateInput()) sendData(token);
 }

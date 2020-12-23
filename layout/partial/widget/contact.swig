@@ -28,8 +28,9 @@
             <div id="message_wrong" class="error_msg hideme">Message is required</div>
         </div>
         <div class="hideme">
-            <label for="empty">Keep this field empty</label>
-            <input id="empty" name="empty" type="text" placeholder="Keep this field empty" />
+            <label for="karaspace">Keep this field empty</label>
+            <input id="karaspace" name="karaspace" type="text" value="" placeholder="Keep this field empty" />
+            <input id="recaptcha" name="recaptcha" type="hidden" />
         </div>
         <div>
             <button id="btn_submit" class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}" data-callback="onSubmitContact" data-action="submit">Submit Comment</button>
